@@ -1,8 +1,6 @@
-package com.热题100;
+package com.e热题100;
 
 import java.util.*;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
 
 /**
  * @Author Lin Yizhou

@@ -1,9 +1,7 @@
-package com.热题100;
+package com.e热题100;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.IntConsumer;
 
 /**
  * @Author Lin Yizhou

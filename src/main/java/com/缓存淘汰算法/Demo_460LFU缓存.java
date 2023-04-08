@@ -1,6 +1,6 @@
 package com.缓存淘汰算法;
 
-import javafx.util.Pair;
+
 
 import java.util.*;
 import java.util.LinkedList;
