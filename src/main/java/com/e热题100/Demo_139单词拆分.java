@@ -9,55 +9,24 @@ import java.util.List;
  * @Date 2023/2/16 20:01
  */
 public class Demo_139单词拆分 {
-    //超时！！
     public static void main(String[] args) {
-        //System.out.println(wordBreak("catsandog", Arrays.asList("cats", "dog", "sand", "and", "cat")));
-        //System.out.println(wordBreak("applepenapple", Arrays.asList("apple", "pen")));
-        System.out.println(wordBreak("leetcode", Arrays.asList("leet", "code")));
-    }
-
-    static LinkedList<String> path = new LinkedList<>();
-
-    static int length = 0;
-    static boolean isCan = false;
-    static boolean isCon = true;
-
-    public static boolean wordBreak(String s, List<String> wordDict) {
-        backtrack(s, wordDict);
-        return isCan;
-    }
-
-    public static void backtrack(String s, List<String> wordDict) {
-        if (s.length() == length && getStr(path).equals(s)) {
-            isCan = true;
-            isCon = false;
-            System.out.println(path);
-            return;
-        }
-
-
-        for (int i = 0; i < wordDict.size(); i++) {
-            String s1 = wordDict.get(i);
-            if (length >= s.length()) continue;
-            path.add(s1);
-            length += s1.length();
-            backtrack(s, wordDict);
-            if (!isCon) return;
-            String s2 = path.removeLast();
-            length -= s2.length();
-        }
-
+        System.out.println(new Demo_139单词拆分().wordBreak("leetcode", Arrays.asList("leet", "code")));
 
     }
 
-    public static String getStr(List<String> path) {
-        StringBuilder sb = new StringBuilder();
-        for (String s : path) {
-            sb.append(s);
-
+    public boolean wordBreak(String s, List<String> wordDict) {
+        boolean[] dp = new boolean[s.length() + 1];
+        dp[0] = true;
+        for (int i = 1; i < s.length() + 1; i++) {
+            for (int j = 0; j < wordDict.size(); j++) {
+                String s1 = wordDict.get(j);
+                int length = s1.length();
+                if (i >= length && s1.equals(s.substring(i - length, i)) && dp[i - length]) {
+                    dp[i] = true;
+                    break;
+                }
+            }
         }
-        return sb.toString();
-
-
+        return dp[s.length()];
     }
 }

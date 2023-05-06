@@ -24,6 +24,7 @@ public class DemoA {
     }
 
     public static void main(String[] args) throws InterruptedException {
+
         Money money = new Money();
         ReentrantReadWriteLock.ReadLock readLock = new ReentrantReadWriteLock().readLock();
         ReentrantReadWriteLock.WriteLock writeLock = new ReentrantReadWriteLock().writeLock();
